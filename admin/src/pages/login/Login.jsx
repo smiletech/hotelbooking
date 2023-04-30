@@ -1,7 +1,8 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useState ,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 // import { AuthContext } from "../../context/AuthContext";
 import "./login.scss";
 import classes from "./login.module.css";
@@ -20,6 +21,9 @@ const Login = () => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
+ 
+  
+
   const handleClick = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
@@ -30,7 +34,6 @@ const Login = () => {
       );
       if (res.data.isAdmin) {
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-
         navigate("/");
       } else {
         dispatch({
@@ -84,18 +87,19 @@ const Login = () => {
             id="password"
             onChange={handleChange}
           />
+         
           <button
-            // style={{ backgroundColor: color }}
-            // disabled={!errorIsNotThere}
+
             type="submit"
             disabled={loading}
           >
             Sign in
           </button>
-          {error && <span>{error?.message}</span>}
-          <p>
-            {/* Already have an account? <Link to="/register">Register</Link> */}
-          </p>
+          
+          {error ? <span style={{color:"red"}}>{error?.message}</span>:<p>
+            Already have an account? <Link to="/register">Register</Link>
+          </p>}
+        
         </form>
       </div>
     </div>

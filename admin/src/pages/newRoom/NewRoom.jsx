@@ -14,11 +14,13 @@ const NewRoom = () => {
 
   const { data, loading, error } = useFetch("http://localhost:8800/api/hotels");
 
+  console.log(data)
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
   const handleClick = async (e) => {
+    console.log(e)
     e.preventDefault();
     const roomNumbers = rooms.split(",").map((room) => ({ number: room }));
     try {
@@ -61,11 +63,12 @@ const NewRoom = () => {
                 />
               </div>
               <div className="formInput">
-                <label>Choose a Room</label>
+                <label>Choose a hotel</label>
                 <select
                   id="hotelId"
                   onChange={(e) => setHotelId(e.target.value)}
                 >
+                   <option key="1" value="1">First Room</option>
                   {loading
                     ? "loading"
                     : data &&

@@ -14,6 +14,7 @@ const NewHotel = () => {
 
   const { data, loading, error } = useFetch("http://localhost:8800/api/rooms");
 
+  console.log(data)
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
@@ -36,7 +37,7 @@ const NewHotel = () => {
           data.append("file", file);
           data.append("upload_preset", "upload");
           const uploadRes = await axios.post(
-            "https://api.cloudinary.com/v1_1/lamadev/image/upload",
+            "https://api.cloudinary.com/v1_1/img-cloud000/image/upload",
             data
           );
 
@@ -109,6 +110,7 @@ const NewHotel = () => {
               <div className="selectRooms">
                 <label>Rooms</label>
                 <select id="rooms" multiple onChange={handleSelect}>
+                <option key={"1"} value={"1"}>first Room</option>
                   {loading
                     ? "loading"
                     : data &&

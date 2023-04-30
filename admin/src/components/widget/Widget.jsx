@@ -4,6 +4,7 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import { Link } from "react-router-dom";
 
 const Widget = ({ type }) => {
   let data;
@@ -17,7 +18,8 @@ const Widget = ({ type }) => {
       data = {
         title: "USERS",
         isMoney: false,
-        link: "See all users",
+        linklebal: "See all users",
+        link: "/users",
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -33,6 +35,7 @@ const Widget = ({ type }) => {
       data = {
         title: "ORDERS",
         isMoney: false,
+        linklebal: "View all orders",
         link: "View all orders",
         icon: (
           <ShoppingCartOutlinedIcon
@@ -49,6 +52,7 @@ const Widget = ({ type }) => {
       data = {
         title: "EARNINGS",
         isMoney: true,
+        linklebal: "View net earnings",
         link: "View net earnings",
         icon: (
           <MonetizationOnOutlinedIcon
@@ -62,6 +66,7 @@ const Widget = ({ type }) => {
       data = {
         title: "BALANCE",
         isMoney: true,
+        linklebal: "See details",
         link: "See details",
         icon: (
           <AccountBalanceWalletOutlinedIcon
@@ -85,7 +90,7 @@ const Widget = ({ type }) => {
         <span className="counter">
           {data.isMoney && "$"} {amount}
         </span>
-        <span className="link">{data.link}</span>
+        <Link to={data.link} className="link">{data.linklebal}</Link>
       </div>
       <div className="right">
         <div className="percentage positive">

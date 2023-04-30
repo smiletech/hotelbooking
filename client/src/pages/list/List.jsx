@@ -25,7 +25,7 @@ const List = () => {
     reFetch();
   };
 
-  console.log(data.length, "<<<");
+  console.log(data.length, "");
 
   return (
     <div>
