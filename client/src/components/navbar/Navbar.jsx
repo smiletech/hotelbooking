@@ -10,9 +10,15 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navContainer">
         <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+
           <span className="logo">Rentilia</span>
+          
         </Link>
-        {user ? user.username : (
+        {user ? 
+        <span style={{cursor:"pointer"}}>
+        {user.username} 
+        </span>
+        : (
           <div className="navItems">
             <button className="navButton" onClick={()=>navigate("/register")}>Register</button>
             <button className="navButton" onClick={()=>navigate("/login")}>Login</button>

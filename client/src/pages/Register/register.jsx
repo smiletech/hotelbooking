@@ -127,11 +127,11 @@ console.log(values,"<>",errors)
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          <button disabled={!errorIsNotThere} style={{ margin: "10px",backgroundColor:color }} type="submit">
+          <button disabled={!errorIsNotThere}  type="submit">
             Register
           </button>
             {error && <span style={{color:'red'}}>{error.message}</span>}
-          <p style={{paddingBottom:"10px"}}>
+            <p>
             Already have an account? <Link to="/login">Login</Link>
           </p>
         </form>

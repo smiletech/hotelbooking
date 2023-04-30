@@ -72,7 +72,6 @@ const Login = () => {
             onChange={handleChange}
           />
           <button
-            style={{ backgroundColor: color }}
             disabled={!errorIsNotThere}
             type="submit"
           >
